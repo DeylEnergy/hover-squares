@@ -134,7 +134,17 @@ export const mainMachine = Machine<
     },
     services: {
       fetchModes: () =>
-        fetch("http://demo1030918.mockable.io/").then((res) => res.json()),
+        Promise.resolve({
+          easyMode: {
+            field: 5,
+          },
+          normalMode: {
+            field: 10,
+          },
+          hardMode: {
+            field: 15,
+          },
+        }),
     },
   }
 );
